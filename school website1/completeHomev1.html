@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>schoolHome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap4/css/bootstrap.min.css">
+    <script type="text/javascript" src="bootstrap4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap4/js/bootstrap.bundle.js"></script>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+        
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+        /* width */
+        
+         ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        /* Track */
+        
+         ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 30px;
+        }
+        /* Handle */
+        
+         ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 30px;
+        }
+        /* Handle on hover */
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        .top-header img {
+            float: right !important;
+            width: 30px;
+            height: 30px;
+            margin-left: 2px;
+            margin-right: 2px;
+            border-radius: 100%;
+        }
+        
+        .dropdown-menu {
+            margin: 0px 10px 2px 10px !important;
+        }
+        
+        .nav-link {
+            margin-left: 10px;
+            margin-bottom: 2px;
+            border-color: transparent;
+            border-width: 0px 0px 5px 0px;
+            border-style: solid;
+            transition: border-color 1s;
+            transition-timing-function: ease-in-out;
+            font-size: 18px !important;
+        }
+        
+        .main-navbar {
+            display: none;
+        }
+        
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+        }
+        
+        .carousel-item {
+            background-color: rgba(0, 0, 0, 0.527);
+        }
+        
+        .carousel-navbar {
+            position: absolute;
+            top: 0%;
+            z-index: 10;
+            width: 100%;
+        }
+        
+        .carouselImg {
+            width: 100%;
+            max-height: auto;
+            mix-blend-mode: darken;
+        }
+        
+        .introductory-div h2 {
+            color: green;
+        }
+        
+        .introductory-div span {
+            font-family: cursive;
+        }
+        
+        .message-row-header {
+            font-size: 20px;
+            font-weight: bolder;
+            color: green;
+            text-transform: capitalize;
+        }
+        
+        .accordion-item-link {
+            font-size: 20px;
+            font-weight: bolder;
+            color: green;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+        /* .schoolView {
+            background-image: linear-gradient(to top, rgb(31, 32, 40), rgb(70, 77, 70));
+            color: white;
+            padding-top: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .schoolView .col-sm-3 {
+            margin-bottom: 30px;
+        } */
+        
+        #ourPartners {
+            position: relative;
+        }
+        
+        #leftscroll,
+        #rightscroll {
+            border: 0;
+            background-color: transparent !important;
+            color: black;
+            outline: none;
+        }
+        
+        #leftscroll span,
+        #rightscroll span {
+            background-color: rgba(24, 23, 23, 0.534);
+        }
+        
+        #leftscroll span:hover,
+        #rightscroll span:hover {
+            background-color: rgba(24, 23, 23, 0.767);
+            color: white;
+            cursor: pointer;
+        }
+        
+        #leftscroll {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+        }
+        
+        #rightscroll {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+        
+        #graphical-ads {
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .vision div div {
+            width: 200px;
+            height: 200px;
+            font-size: x-large;
+        }
+        
+        .why-study-at-rls {
+            position: relative;
+            background-color: rgba(112, 90, 60, 0.678);
+        }
+        
+        .why-study-at-rls img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            mix-blend-mode: darken;
+        }
+        
+        footer {
+            background-color: rgb(31, 32, 40);
+            padding-right: 50px;
+            padding-left: 50px;
+        }
+        
+        footer header {
+            text-align: center;
+        }
+        
+        footer header h3 {
+            padding-top: 20px;
+            color: white;
+            text-transform: capitalize;
+            font-family: monospace;
+        }
+        
+        footer header p {
+            color: rgb(100, 100, 120);
+        }
+        
+        footer header hr {
+            margin: 20px 50px 20px 50px;
+            background-color: rgb(61, 61, 61);
+            height: 2px;
+        }
+        
+        figcaption {
+            color: grey;
+        }
+        
+        .foot {
+            color: rgb(100, 100, 120);
+            text-align: center;
+            text-shadow: currentColor;
+            font-weight: bolder;
+            font-family: monospace;
+        }
+        
+        .foot hr {
+            background-color: rgb(61, 61, 61);
+            height: 1px;
+            margin-top: 20px;
+        }
+        
+        .footer_link {
+            margin-top: 10px;
+            float: left;
+            text-decoration: none;
+            color: grey;
+            width: 100%;
+            font-size: 20px;
+        }
+        
+        .footer_logo {
+            border-radius: 100%;
+            align-self: center;
+        }
+        
+        .footer_link:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        footer .col-md-3 {
+            margin-top: 20px;
+        }
+        
+        footer .col-md-3 hr {
+            background-color: green;
+            height: 5px;
+            border-color: green;
+        }
+        
+        .footer_head {
+            color: white;
+        }
+        
+        .subscribe {
+            position: relative;
+            width: 50%;
+            margin: 0 auto;
+        }
+        
+        .subscribe button[type="submit"] {
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            bottom: 2px;
+            color: grey;
+            background-color: rgba(31, 32, 40, 0.822);
+        }
+        
+        .subscribe button[type="submit"]:hover {
+            background-color: rgba(31, 32, 40);
+            color: white;
+        }
+        
+        .subscribe input {
+            background-color: rgb(51, 52, 60);
+            padding: 10px 10px 10px 20px;
+            border-style: none;
+            border-radius: 70px;
+            width: 100%;
+            outline: none;
+            color: white;
+        }
+        
+        @media only screen and (max-width: 540px) {
+            .message-img {
+                border-radius: 5px !important;
+            }
+            .school-logo-and-address p {
+                font-size: x-small;
+            }
+        }
+        
+        @media only screen and (min-width: 768px) {
+            .navbar-brand img {
+                width: 100px;
+                height: 100px;
+            }
+            .top-header {
+                display: block;
+            }
+            .nav-link:hover {
+                border-width: 0px 0px 5px 0px;
+                border-color: green;
+            }
+            .footer_logo {
+                width: 70%;
+            }
+            #leftscroll {
+                left: -42px;
+            }
+            #rightscroll {
+                right: -44px;
+            }
+        }
+        
+        @media only screen and (max-width:768px) {
+            .footer_logo {
+                width: 40%;
+            }
+            figcaption {
+                float: right;
+            }
+        }
+        
+        @media only screen and (max-width: 992px) {
+            .navbar-collapse {
+                color: gray !important;
+                box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.788);
+                z-index: 1000 !important;
+            }
+            .nav-link:hover {
+                border-width: 0px 0px 5px 0px;
+            }
+            .nav-link:hover .carousel-indicators {
+                background-color: darkgreen;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-black-50">
+    <!------------------------carousel----------------------->
+    <header class="carousel slide d-none d-sm-block" id="topCarousel" data-ride="carousel">
+        <!-- navabr -->
+        <nav class="p-1 navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="dipository/logos/logo_school.jfif" style="width:60px;height:60px">
+                <span class="h6 font-italic">Rwamagana Leaders'School</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <div class="collapse d-flex justify-content-end navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" style="color:orange !important;">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" href="#" data-toggle="dropdown">About us</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Vision and mission</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">History</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">School life</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Meet our admin</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" data-toggle="dropdown" href="#">Academics</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Academic facilities</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Student admission</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">O'level</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">A'level</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">E-learning</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" href="#" data-toggle="dropdown">	Portals</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">E-learning</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Media</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Library</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Parent Feed</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Admins and Staff</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Voting System</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Alumni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!---carousel Indicators--->
+        <!-- <ul class="carousel-indicators">
+            <li data-target="topCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#topCarousel" data-slide-to="1"></li>
+            <li data-target="#topCarousel" data-slide-to="2"></li>
+            <li data-target="#topCarousel" data-slide-to="3"></li>
+            <li data-target="#topCarousel" data-slide-to="4"></li>
+        </ul> -->
+        <!--------the slide show-------->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="dipository/gallery/school1.jpg" class="carouselImg">
+                <div class="carousel-caption text-left">
+                    <h3>Educate a kid</h3>
+                    <p>Envision him/her</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="dipository/gallery/school2.jpg" class="carouselImg">
+                <div class="carousel-caption text-right">
+                    <h3>Inclusiveness</h3>
+                    <p>Key to success</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="dipository/gallery/school3.jpg" class="carouselImg">
+                <div class="carousel-caption">
+                    <h3>Only the sky is the limit</h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="dipository/gallery/school4.jpg" class="carouselImg">
+                <!-- <div class="carousel-caption">
+                    <h3>Caption text</h3>
+                    <p>some content</p>
+                </div> -->
+            </div>
+            <div class="carousel-item">
+                <img src="dipository/gallery/school2.jpg" class="carouselImg">
+                <!-- <div class="carousel-caption">
+                    <h3>Caption text</h3>
+                    <p>some content</p>
+                </div> -->
+            </div>
+        </div>
+        <!------carousel next and prev controls------>
+        <a href="#topCarousel" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a href="#topCarousel" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </header>
+
+    <!------------------------page main content----------------------------->
+    <main class="container-fluid">
+        <div class="introductory-div pt-5 pb-1 px-2 text-center">
+
+            <h2>RLS <span>"where education is for life"</span></h2>
+            <p>Rwamagana Leaders' School is committed to the total development of students’ minds, hearts, and bodies. Yet first and foremost, we are a school, one that works diligently to maintain a reputation for academic excellence. We offer a unique
+                educational experience designed to enhance intellectual growth and promote participatory engagement. </p>
+        </div>
+        <div class="row mx-1 rounded pt-5">
+            <div class="col-sm-9 col-md-5 message-img">
+                <img src="dipository/gallery/founder.jpeg" height="100%" width="100%">
+            </div>
+            <div class="col-sm-12 col-md-7" id="director-message">
+                <h3><span>Founder's Message</span></h3>
+                <p class="message-row-header">robin strickler</p><br><br>
+                <p>A warm Welcome to King David Academy.</p>
+                <p>King David Academy is a model school for yesterday,today and tomorrow, this is reflected in our REB results for Both O’ and A’ level as well as the Cambridge system. We have always maintained our academic excellence with our staff members
+                    doing a commendable job to teach and nurture our students.</p>
+                <p>King David Academy is located in Kigali – Rwanda, along Kanombe Airport Road. The School started in 2000. It was started with a two-fold purpose: 1. To provide high quality education, through innovation, positive influence, team-work and
+                    self discipline; guided by the principles of professionalism, commitment and excellence.</p>
+                <p>The school offers both national and Cambridge curriculums with a variety of co-curricular activities like Music, Dance, Drama, Sports etc and cultural values of education. Parents are strongly encouraged that their students are in volved
+                    in different co-curricum activities through out their life in school.</p>
+            </div>
+        </div>
+        <div class="row mx-1 rounded pt-5">
+            <div class="col-sm-9 col-md-5 d-sm-none message-img">
+                <img src="dipository/gallery/director.png" height=" 100%" width="100%">
+            </div>
+            <div class="col-md-7" id="director-message">
+                <h3><span>Director's Welcome</span></h3>
+                <p class="message-row-header">Moses Ssenyonjo</p>
+                <p>A warm Welcome to King David Academy.</p>
+                <p>King David Academy is a model school for yesterday,today and tomorrow, this is reflected in our REB results for Both O’ and A’ level as well as the Cambridge system. We have always maintained our academic excellence with our staff members
+                    doing a commendable job to teach and nurture our students.</p>
+                <p>King David Academy is located in Kigali – Rwanda, along Kanombe Airport Road. The School started in 2000. It was started with a two-fold purpose: 1. To provide high quality education, through innovation, positive influence, team-work and
+                    self discipline; guided by the principles of professionalism, commitment and excellence.</p>
+                <p>The school offers both national and Cambridge curriculums with a variety of co-curricular activities like Music, Dance, Drama, Sports etc and cultural values of education. Parents are strongly encouraged that their students are in volved
+                    in different co-curricum activities through out their life in school.</p>
+            </div>
+            <div class="col-sm-9 col-md-5 message-img d-none d-md-block message-img">
+                <img src="dipository/gallery/director.png" height="100%" width="100%">
+            </div>
+        </div>
+        <div class="row bg-dark justify-content-center why-study-at-rls mb-3 py-3">
+            <div class="bg-success col-sm-5 p-3 m-2">
+                <h2 class="text-center text-warning">curricurumn</h2>
+                <p class="text-center">we base on Rwandan REB education</p>
+                <p class="text-center">with the following courses</p>
+                <ul class="mx-5">
+                    <li>Math</li>
+                    <li>Physics</li>
+                    <li>Chemistry</li>
+                    <li>Computer Science</li>
+                    <li>Geograhpy</li>
+                    <li>Environmental Studies</li>
+                    <li>Kinyarwanda</li>
+                    <li>English</li>
+                    <li>French</li>
+                    <li>Kiswahili</li>
+                    <li>Religion & Ethics</li>
+                    <li>Fine Arts</li>
+                </ul>
+            </div>
+            <div class="bg-success col-sm-5 p-3 m-2">
+                <h2 class="text-center text-warning">classes & levels</h2>
+                <p>We have offer:</p>
+                <ul>
+                    <li>
+                        <p>Ordinary level</p>
+                        <ul>
+                            <li>senior 1</li>
+                            <li>senior 2</li>
+                            <li>senior 3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Advanced level</p>
+                        <ul>
+                            <li>
+                                <p>senior 4-6</p>
+                                <li>combinations</li>
+                                <ul>
+                                    <li>MPC</li>
+                                    <li>MPG</li>
+                                    <li>MEG</li>
+                                    <li>MCE</li>
+                                    <li>PCM</li>
+                                    <li>HEG</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <h2 class="text-center">RLS community</h2>
+        <div class="vision row justify-content-center py-5">
+            <div class="col-sm-3 d-flex justify-content-center text-center p-2 m-2">
+                <div class="bg-white shadow-lg py-5 rounded-circle">
+                    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg></p>
+                    <p class="mt-4"></p>34</p>
+                </div>
+            </div>
+            <div class="col-sm-3 d-flex justify-content-center text-center p-2 m-2">
+                <div class="bg-white shadow-lg rounded-circle py-5">
+                    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                      </svg>
+                    </p>
+                    <p class="mt-4">200</p>
+                </div>
+            </div>
+            <div class="col-sm-3 bord d-flex justify-content-center text-center p-2 m-2">
+                <div class="bg-white  shadow-lg rounded-circle py-5 rounded-circle">
+                    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg></p>
+                    <p class="mt-4">5</p>
+                </div>
+            </div>
+        </div>
+        <div class="my-5 row mx-2 mx-md-5">
+            <div id="accordion">
+                <div class="accordion-item">
+                    <a class="collapsed accordion-item-link" data-toggle="collapse" href="#whyStudyAt">Why study at RLS</a>
+                    <div id="whyStudyAt" class="collapse" data-parent="#accordion" active>
+                        <div class="row">
+                            <div class="col-sm-4 p-5 p-md-1">
+                                <h4 class="text-center">Social Sustainability</h2>
+                                    <p>School culture is important to any school for any young people, but in a country where genocide divided and decimated the population and where corporal punishment was recently routine, it is fundamental. We have a code
+                                        of conduct that guides both students and staff. Each student is a member of a Crew of fifteen or less who stay with one adult for three years. We push students to compete with standards and their personal best rather
+                                        than with one another. We encourage teamwork and participation. We have an expectation that new students will be welcomed and helped, never ostracized or teased.</p>
+                            </div>
+                            <div class="col-sm-4 p-5  p-md-1">
+                                <h4 class="text-center">Expeditionary Learning</h4>
+                                <p>We are using Expeditionary Learning (EL) as a way to push critical thinking and analysis, cross-curricular connections between subjects, extensive reading and writing, and inquiry-based math and science. EL helps us to
+                                    improve professional development for teachers, methods of assessment for learning and pushes us to use data to back up our assumptions about student learning. In an EL school, character development and community service
+                                    are as important as academics. To learn more about EL and how it inspires us, check out elschools.org .</p>
+                            </div>
+                            <div class="col-sm-4 p-5  p-md-1">
+                                <h4 class="text-center">Economic Sustainability</h4>
+                                <p>we are working to develop an A-Level (10th-12th grades) curriculum that can help our students be competitive in fields such as green architecture, waste management, alternative energy, water management, soil science, family
+                                    planning and environmental law, to name a few. Our goal is to see greater economic sustainability for parents and students. As the country develops “trade, not aid” , more parents can contribute to paying school fees
+                                    and the school can develop entrepreneurial projects to support the school. While we may always have some students who urgently need assistance, we are aiming for 65% economic independence through parent tuition and
+                                    income-generating projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a class="collapsed accordion-item-link" data-toggle="collapse" href="#latestNews">Trending News and Announcements</a>
+                    <div class="collapse" id="latestNews" data-parent="#accordion">
+                        <div class="row mx-2">
+                            <ul class="list-group col-lg-8">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-8 col-md-9">
+                                            Don Quixote
+                                            <p><small>Lorem ipsum dolor sit, amet consectetur adipi.</small></p>
+                                            <span class="badge badge-warning badge-pill"> 2 views</span>
+                                            <span class="badge badge-warning badge-pill"> 2 comments</span>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <img src="dipository/gallery/2.MorningCircle2-1.jpg" class="rounded img-fluid" alt="quixote">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-8 col-md-9">
+                                            Don Quixote
+                                            <p><small>Lorem ipsum dolor sit, amet consectetur adipi.</small></p>
+                                            <span class="badge badge-warning badge-pill"> 2 views</span>
+                                            <span class="badge badge-warning badge-pill"> 2 comments</span>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <video class="img-fluid" controls>
+                                                <source src="dipository/gallery/videos/7. Constructors.mp4" type="video/mp4">
+                                                <source src="dipository/gallery/videos/7. Constructors.mp4" type="video/mp4">
+                                              Your browser does not support the video tag.
+                                              </video>
+                                        </div>
+                                    </div>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a class="collapsed accordion-item-link" data-toggle="collapse" href="#ourPartners">Our parterners in life</a>
+                    <div class="collapse show" id="ourPartners" data-parent="#accordion">
+                        <button id="leftscroll"><span class="py-2 px-3 px-md-3 py-md-2 rounded-circle">l</span></button>
+                        <div id="graphical-ads">
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (12).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (10).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (9).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (16).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" scr="dipository/logos/wallpaperflare.com_wallpaper (18).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (17).jpg" height="100%" width="32%"></img>
+                            </a>
+                        </div>
+                        <button id="rightscroll"><span class="py-2 px-3 px-md-3 py-md-2 rounded-circle">r</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!---------------------------footer content------------------------->
+    <footer class="container-fluid">
+        <header>
+            <h3>subcribe to RLS</h3>
+            <form class="subscribe mb-2" action="" method="">
+                <button type="submit" class="px-3 py-1 border-0 rounded-circle" id="subscribe" name="subscribe"><span class="">re</span></button>
+                <input type="email" name="subscribe" placeholder="Email address" />
+            </form>
+            <p>Subscribe to keep updated with all RLS concerned updates and special resources</p>
+            <p>you can opt out later</p>
+            <hr>
+        </header>
+        <div class="row">
+            <div class="col-md-3 d-sm-flex d-md-block school-logo-and-address">
+                <img class="footer_logo" src="dipository/logos/logo_school.jfif">
+                <figcaption>
+                    <p>Po.Box 123</p>
+                    <p>RWAMAGANA,RWANDA</p>
+                    <p>KIGABILO sector,MUHAZI</p>
+                </figcaption>
+            </div>
+            <div class="col-md-3">
+                <h3 class="footer_head">in school</h3>
+                <hr/>
+                <a href="#" class="footer_link">Galley</a>
+                <a href="#" class="footer_link">Clubs</a>
+                <a href="#" class="footer_link">Sports</a>
+                <a href="#" class="footer_link">News</a>
+                <a href="#" class="footer_link">Entertainment</a>
+                <a href="#" class="footer_link">Daily life</a>
+            </div>
+            <div class="col-md-3">
+                <h3 class="footer_head">Quick links</h3>
+                <hr/>
+                <a href="#" class="footer_link">About us</a>
+                <a href="#" class="footer_link">Academics</a>
+                <a href="#" class="footer_link">Contact us</a>
+                <a href="#" class="footer_link">Rls Alumni</a>
+                <a href="#" class="footer_link">Updates</a>
+                <a href="#" class="footer_link">Join us</a>
+            </div>
+            <div class="col-md-3">
+                <h3 class="footer_head">admission</h3>
+                <hr/>
+                <a href="#" class="footer_link">About admission</a>
+                <a href="#" class="footer_link">Sponsership</a>
+                <a href="#" class="footer_link">Tution & fee</a>
+                <a href="#" class="footer_link">Apply Online</a>
+                <a href="#" class="footer_link">Portal logins</a>
+            </div>
+        </div>
+        <div class="foot row">
+            <div class="col">
+                <hr>
+                <p>Powered by N @ Emile.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    const leftScroll = document.getElementById("leftscroll")
+    const rightScroll = document.getElementById("rightscroll")
+
+    leftScroll.onclick = function() {
+        document.getElementById("graphical-ads").scrollLeft -= 50;
+    }
+
+    rightScroll.onclick = function() {
+        document.getElementById("graphical-ads").scrollLeft += 50;
+    }
+</script>
+
+</html>

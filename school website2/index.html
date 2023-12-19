@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>schoolHome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap4/css/bootstrap.min.css">
+    <script type="text/javascript" src="bootstrap4/js/bootstrap.bundle.js"></script>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+        
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+        /* width */
+        
+         ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        /* Track */
+        
+         ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 30px;
+        }
+        /* Handle */
+        
+         ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 30px;
+        }
+        /* Handle on hover */
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        .footer-and-nav-background {
+            background-color: rgb(31, 32, 40) !important;
+        }
+        
+        .navbar {
+            transition: background 1s;
+        }
+        
+        .navbar-brand img {
+            width: 50px;
+            height: 70px;
+            margin-left: 2px;
+            margin-right: 2px;
+            border-radius: 100%;
+        }
+        
+        .carousel-item {
+            background-color: rgba(0, 0, 0, 0.527);
+        }
+        
+        .carouselImg {
+            width: 100%;
+            max-height: auto;
+            mix-blend-mode: darken;
+        }
+        
+        .introductory-div h2 {
+            color: green;
+        }
+        
+        .introductory-div span {
+            font-family: cursive;
+        }
+        
+        .message-row-header {
+            font-size: 20px;
+            font-weight: bolder;
+            color: green;
+            text-transform: capitalize;
+        }
+        
+        .accordion-item-link {
+            font-size: 20px;
+            font-weight: bolder;
+            color: green;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+        
+        #ourPartners {
+            position: relative;
+        }
+        
+        #leftscroll,
+        #rightscroll {
+            border: 0;
+            background-color: transparent !important;
+            color: black;
+            outline: none;
+        }
+        
+        #leftscroll span,
+        #rightscroll span {
+            background-color: rgba(24, 23, 23, 0.534);
+        }
+        
+        #leftscroll span:hover,
+        #rightscroll span:hover {
+            background-color: rgba(24, 23, 23, 0.767);
+            color: white;
+            cursor: pointer;
+        }
+        
+        #leftscroll {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+        }
+        
+        #rightscroll {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+        
+        #graphical-ads {
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .vision div div {
+            width: 200px;
+            height: 200px;
+            font-size: x-large;
+        }
+        
+        .why-study-at-rls {
+            position: relative;
+            background-color: rgba(112, 90, 60, 0.678);
+        }
+        
+        .why-study-at-rls img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            mix-blend-mode: darken;
+        }
+        
+        footer header h3 {
+            padding-top: 20px;
+            color: white;
+            text-transform: capitalize;
+            font-family: monospace;
+        }
+        
+        footer header p {
+            color: rgb(100, 100, 120);
+        }
+        
+        footer header hr {
+            background-color: rgb(61, 61, 61);
+            height: 2px;
+        }
+        
+        figcaption {
+            color: grey;
+        }
+        
+        .foot {
+            color: rgb(100, 100, 120);
+            font-weight: bolder;
+            font-family: monospace;
+        }
+        
+        .foot hr {
+            background-color: rgb(61, 61, 61);
+            height: 1px;
+        }
+        
+        .footer_link {
+            text-decoration: none;
+            color: grey;
+        }
+        
+        .footer_link:hover {
+            color: white;
+            text-decoration: none;
+            background-color: rgb(51, 52, 60);
+        }
+        
+        footer .col-md-3 hr {
+            background-color: green;
+            height: 3px;
+        }
+        
+        .form-subscribe {
+            background-color: rgb(51, 52, 60);
+        }
+        
+        .form-subscribe button[type="submit"] {
+            color: grey !important;
+            background-color: rgba(31, 32, 40, 0.822) !important;
+        }
+        
+        .form-subscribe button[type="submit"]:hover {
+            background-color: rgba(31, 32, 40) !important;
+            color: white !important;
+        }
+        
+        .form-subscribe input {
+            background-color: rgb(51, 52, 60) !important;
+            outline: none !important;
+            color: white !important;
+        }
+        
+        @media screen and (max-width:576px) {
+            .navbar {
+                background-color: #343a40!important;
+            }
+        }
+        
+        @media screen and (min-width:576px) {
+            .navbar {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                z-index: 1020
+            }
+        }
+    </style>
+</head>
+
+<body class="text-black-50">
+    <header>
+        <!-------navgation br------->
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <!--brand/logo-->
+            <a class="navbar-brand text-secondary" href="#">
+                <img src="dipository/logos/logo_school.jfif">
+                <span class="h6 font-italic">Rwamagana Leaders'School</span>
+            </a>
+            <!--collapse button-->
+            <button id="nav-links-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+            <!--Links--->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" style="color:orange !important;">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link text-white" href="#" data-toggle="dropdown">About us</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Vision and mission</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">History</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">School life</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Meet our admin</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link text-white" data-toggle="dropdown" href="#">Academics</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Academic facilities</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Student admission</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">O'level</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">A'level</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">E-learning</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link text-white" href="#" data-toggle="dropdown">	Portals</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">E-learning</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Media</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Library</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Parent Feed</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Admins and Staff</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Voting System</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Alumni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!------------------------carousel----------------------->
+        <div class="carousel slide d-none d-sm-block" id="topCarousel" data-ride="carousel">
+            <!---carousel Indicators--->
+            <!-- <ul class="carousel-indicators">
+            <li data-target="topCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#topCarousel" data-slide-to="1"></li>
+            <li data-target="#topCarousel" data-slide-to="2"></li>
+            <li data-target="#topCarousel" data-slide-to="3"></li>
+            <li data-target="#topCarousel" data-slide-to="4"></li>
+        </ul> -->
+            <!--------the slide show-------->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="dipository/gallery/school1.jpg" class="carouselImg">
+                    <div class="carousel-caption text-left">
+                        <h3>Educate a kid</h3>
+                        <p>Envision him/her</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="dipository/gallery/school2.jpg" class="carouselImg">
+                    <div class="carousel-caption text-right">
+                        <h3>Inclusiveness</h3>
+                        <p>Key to success</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="dipository/gallery/school3.jpg" class="carouselImg">
+                    <div class="carousel-caption">
+                        <h3>Only the sky is the limit</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="dipository/gallery/school4.jpg" class="carouselImg">
+                    <!-- <div class="carousel-caption">
+                    <h3>Caption text</h3>
+                    <p>some content</p>
+                </div> -->
+                </div>
+                <div class="carousel-item">
+                    <img src="dipository/gallery/school2.jpg" class="carouselImg">
+                    <!-- <div class="carousel-caption">
+                    <h3>Caption text</h3>
+                    <p>some content</p>
+                </div> -->
+                </div>
+            </div>
+            <!------carousel next and prev controls------>
+            <a href="#topCarousel" class="carousel-control-prev" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a href="#topCarousel" class="carousel-control-next" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+    </header>
+    </div>
+
+    <!------------------------page main content----------------------------->
+    <main class="container-fluid">
+        <!-- introductory div -->
+        <div class="introductory-div pt-5 pb-1 px-2 text-center">
+
+            <h2>RLS <span>"where education is for life"</span></h2>
+            <p>Rwamagana Leaders' School is committed to the total development of students’ minds, hearts, and bodies. Yet first and foremost, we are a school, one that works diligently to maintain a reputation for academic excellence. We offer a unique
+                educational experience designed to enhance intellectual growth and promote participatory engagement. </p>
+        </div>
+        <!-- founder's message -->
+        <div class="row mx-1 rounded pt-5">
+            <div class="col-sm-9 col-md-5 message-img">
+                <img src="dipository/gallery/founder.jpeg" height="100%" width="100%">
+            </div>
+            <div class="col-sm-12 col-md-7" id="director-message">
+                <h3><span>Founder's Message</span></h3>
+                <p class="message-row-header">robin strickler</p><br><br>
+                <p>A warm Welcome to King David Academy.</p>
+                <p>King David Academy is a model school for yesterday,today and tomorrow, this is reflected in our REB results for Both O’ and A’ level as well as the Cambridge system. We have always maintained our academic excellence with our staff members
+                    doing a commendable job to teach and nurture our students.</p>
+                <p>King David Academy is located in Kigali – Rwanda, along Kanombe Airport Road. The School started in 2000. It was started with a two-fold purpose: 1. To provide high quality education, through innovation, positive influence, team-work and
+                    self discipline; guided by the principles of professionalism, commitment and excellence.</p>
+                <p>The school offers both national and Cambridge curriculums with a variety of co-curricular activities like Music, Dance, Drama, Sports etc and cultural values of education. Parents are strongly encouraged that their students are in volved
+                    in different co-curricum activities through out their life in school.</p>
+            </div>
+        </div>
+        <!-- director's meassage -->
+        <div class="row mx-1 rounded pt-5">
+            <div class="col-sm-9 col-md-5 d-sm-none message-img">
+                <img src="dipository/gallery/director.png" height=" 100%" width="100%">
+            </div>
+            <div class="col-md-7" id="director-message">
+                <h3><span>Director's Welcome</span></h3>
+                <p class="message-row-header">Moses Ssenyonjo</p>
+                <p>A warm Welcome to King David Academy.</p>
+                <p>King David Academy is a model school for yesterday,today and tomorrow, this is reflected in our REB results for Both O’ and A’ level as well as the Cambridge system. We have always maintained our academic excellence with our staff members
+                    doing a commendable job to teach and nurture our students.</p>
+                <p>King David Academy is located in Kigali – Rwanda, along Kanombe Airport Road. The School started in 2000. It was started with a two-fold purpose: 1. To provide high quality education, through innovation, positive influence, team-work and
+                    self discipline; guided by the principles of professionalism, commitment and excellence.</p>
+                <p>The school offers both national and Cambridge curriculums with a variety of co-curricular activities like Music, Dance, Drama, Sports etc and cultural values of education. Parents are strongly encouraged that their students are in volved
+                    in different co-curricum activities through out their life in school.</p>
+            </div>
+            <div class="col-sm-9 col-md-5 message-img d-none d-md-block message-img">
+                <img src="dipository/gallery/director.png" height="100%" width="100%">
+            </div>
+        </div>
+        <!-- academics overview -->
+        <div class="row justify-content-center why-study-at-rls mb-3 py-3">
+            <img src="dipository/gallery/school2.jpg" width="100%" height="100%" alt="students at rls">
+            <div class="bg-success col-sm-5 p-3 m-2">
+                <h2 class="text-center text-warning">curricurumn</h2>
+                <p class="text-center">we base on Rwandan REB education</p>
+                <p class="text-center">with the following courses</p>
+                <ul class="mx-5">
+                    <li>Math</li>
+                    <li>Physics</li>
+                    <li>Chemistry</li>
+                    <li>Computer Science</li>
+                    <li>Geograhpy</li>
+                    <li>Environmental Studies</li>
+                    <li>Kinyarwanda</li>
+                    <li>English</li>
+                    <li>French</li>
+                    <li>Kiswahili</li>
+                    <li>Religion & Ethics</li>
+                    <li>Fine Arts</li>
+                </ul>
+            </div>
+            <div class="bg-success col-sm-5 p-3 m-2">
+                <h2 class="text-center text-warning">classes & levels</h2>
+                <p>We have offer:</p>
+                <ul>
+                    <li>
+                        <p>Ordinary level</p>
+                        <ul>
+                            <li>senior 1</li>
+                            <li>senior 2</li>
+                            <li>senior 3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Advanced level</p>
+                        <ul>
+                            <li>
+                                <p>senior 4-6</p>
+                                <li>combinations</li>
+                                <ul>
+                                    <li>MPC</li>
+                                    <li>MPG</li>
+                                    <li>MEG</li>
+                                    <li>MCE</li>
+                                    <li>PCM</li>
+                                    <li>HEG</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <h2 class="text-center">RLS community</h2>
+        <!-- rls community overview-->
+        <div class="rls-community row justify-content-center g-0 py-5">
+            <!-- staff -->
+            <div class="col-sm-3 d-flex justify-content-center text-center p-2">
+                <div class="bg-white d-flex flex-column shadow-lg pt-5 pb-4 px-5 rounded-circle">
+                    <p class="m-0 p-0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg></p>
+                    <p class="m-0 p-0"></p>34</p>
+                </div>
+            </div>
+            <!-- students -->
+            <div class="col-sm-3 d-flex justify-content-center text-center p-2">
+                <div class="bg-white d-flex flex-column shadow-lg pt-5 pb-4 px-5 rounded-circle">
+                    <p class="m-0 p-0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg></p>
+                    <p class="m-0 p-0"></p>34</p>
+                </div>
+            </div>
+            <!-- win rate -->
+            <div class="col-sm-3 d-flex justify-content-center text-center p-2">
+                <div class="bg-white d-flex flex-column shadow-lg pt-5 pb-4 px-5 rounded-circle">
+                    <p class="m-0 p-0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg></p>
+                    <p class="m-0 p-0"></p>34</p>
+                </div>
+            </div>
+        </div>
+        <div class="my-5 row mx-2 mx-md-5">
+            <div id="accordion">
+                <div class="accordion-item">
+                    <a class="collapsed accordion-item-link" data-toggle="collapse" href="#whyStudyAt">Why study at RLS</a>
+                    <div id="whyStudyAt" class="collapse" data-parent="#accordion" active>
+                        <div class="row">
+                            <div class="col-sm-4 p-5 p-md-1">
+                                <h4 class="text-center">Social Sustainability</h2>
+                                    <p>School culture is important to any school for any young people, but in a country where genocide divided and decimated the population and where corporal punishment was recently routine, it is fundamental. We have a code
+                                        of conduct that guides both students and staff. Each student is a member of a Crew of fifteen or less who stay with one adult for three years. We push students to compete with standards and their personal best rather
+                                        than with one another. We encourage teamwork and participation. We have an expectation that new students will be welcomed and helped, never ostracized or teased.</p>
+                            </div>
+                            <div class="col-sm-4 p-5  p-md-1">
+                                <h4 class="text-center">Expeditionary Learning</h4>
+                                <p>We are using Expeditionary Learning (EL) as a way to push critical thinking and analysis, cross-curricular connections between subjects, extensive reading and writing, and inquiry-based math and science. EL helps us to
+                                    improve professional development for teachers, methods of assessment for learning and pushes us to use data to back up our assumptions about student learning. In an EL school, character development and community service
+                                    are as important as academics. To learn more about EL and how it inspires us, check out elschools.org .</p>
+                            </div>
+                            <div class="col-sm-4 p-5  p-md-1">
+                                <h4 class="text-center">Economic Sustainability</h4>
+                                <p>we are working to develop an A-Level (10th-12th grades) curriculum that can help our students be competitive in fields such as green architecture, waste management, alternative energy, water management, soil science, family
+                                    planning and environmental law, to name a few. Our goal is to see greater economic sustainability for parents and students. As the country develops “trade, not aid” , more parents can contribute to paying school fees
+                                    and the school can develop entrepreneurial projects to support the school. While we may always have some students who urgently need assistance, we are aiming for 65% economic independence through parent tuition and
+                                    income-generating projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a class="collapsed accordion-item-link" data-toggle="collapse" href="#latestNews">Trending News and Announcements</a>
+                    <div class="collapse" id="latestNews" data-parent="#accordion">
+                        <div class="row mx-2">
+                            <ul class="list-group col-lg-8">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-8 col-md-9">
+                                            Don Quixote
+                                            <p><small>Lorem ipsum dolor sit, amet consectetur adipi.</small></p>
+                                            <span class="badge badge-warning badge-pill"> 2 views</span>
+                                            <span class="badge badge-warning badge-pill"> 2 comments</span>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <img src="photos/2.MorningCircle2-1.jpg" class="rounded img-fluid" alt="quixote">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-8 col-md-9">
+                                            Don Quixote
+                                            <p><small>Lorem ipsum dolor sit, amet consectetur adipi.</small></p>
+                                            <span class="badge badge-warning badge-pill"> 2 views</span>
+                                            <span class="badge badge-warning badge-pill"> 2 comments</span>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <video class="img-fluid" controls>
+                                                <source src="news/videos/7. Constructors.mp4" type="video/mp4">
+                                                <source src="news/videos/7. Constructors.mp4" type="video/mp4">
+                                              Your browser does not support the video tag.
+                                              </video>
+                                        </div>
+                                    </div>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a class="collapsed accordion-item-link" data-toggle="collapse" href="#ourPartners">Our parterners in life</a>
+                    <div class="collapse show" id="ourPartners" data-parent="#accordion">
+                        <button id="leftscroll"><span class="py-2 px-3 px-md-3 py-md-2 rounded-circle">l</span></button>
+                        <div id="graphical-ads">
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (12).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (10).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (9).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (16).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (18).jpg" height="100%" width="32%"></img>
+                            </a>
+                            <a href="#"><img class="rounded" src="dipository/logos/wallpaperflare.com_wallpaper (17).jpg" height="100%" width="32%"></img>
+                            </a>
+                        </div>
+                        <button id="rightscroll"><span class="py-2 px-3 px-md-3 py-md-2 rounded-circle">r</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!---------------------------footer content------------------------->
+    <footer id="pageFooter" class="px-3 px-md-4 px-lg-5 footer-and-nav-background container-fluid">
+        <header class="text-center">
+            <h3 class="text-white pt-4">subcribe to RLS</h3>
+            <div class="row justify-content-center">
+                <form class="form-subscribe col-10 col-md-8 col-lg-6 p-1 rounded mb-2" action="" method="">
+                    <div class="input-group">
+                        <input type="email" class="form-control py-0 border-0" name="subscribe" placeholder="Email address" />
+                        <button type="submit" class="px-3 py-1 rounded border-0" id="subscribe" name="subscribe"><span class="">re</span></button>
+                    </div>
+                </form>
+            </div>
+            <p>Subscribe to keep updated with all RLS concerned updates and special resources</p>
+            <p>you can opt out later</p>
+            <hr>
+        </header>
+        <div class="row">
+            <!-- school logo and address -->
+            <div class="col-md-3 row mt-2">
+                <div class="row col-6 col-sm-4 col-md-12 justify-content-center">
+                    <img class="rounded-circle img-fluid col-lg-10" src="dipository/logos/logo_school.jfif">
+                </div>
+                <figcaption class="col-12">
+                    <p class="p-0 m-0">Po.Box 123</p>
+                    <p class="p-0 m-0">RWAMAGANA,RWANDA</p>
+                    <p class="p-0 m-0">KIGABILO sector,MUHAZI</p>
+                </figcaption>
+            </div>
+            <!-- links -->
+            <div class="col-md-3 mt-3">
+                <h3 class="text-white">in school</h3>
+                <hr/>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Galley</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Clubs</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Sports</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">News</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Entertainment</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Daily life</p>
+                </a>
+            </div>
+            <!-- links -->
+            <div class="col-md-3 mt-3">
+                <h3 class="text-white">Quick links</h3>
+                <hr/>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">About us</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Academics</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Contact us</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Rls Alumni</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Updates</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Join us</p>
+                </a>
+            </div>
+            <!-- links -->
+            <div class="col-md-3 mt-3">
+                <h3 class="text-white">admission</h3>
+                <hr/>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">About admission</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Sponsership</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Tution & fee</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Apply Online</p>
+                </a>
+                <a href="#" class="footer_link">
+                    <p class="m-0 mt-2">Portal logins</p>
+                </a>
+            </div>
+        </div>
+        <div class="foot text center row">
+            <div class="col">
+                <hr class="mt-3">
+                <p class="text-center">Powered by N @ Emile.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    const leftScroll = document.getElementById("leftscroll")
+    const rightScroll = document.getElementById("rightscroll")
+
+    leftScroll.onclick = function() {
+        document.getElementById("graphical-ads").scrollLeft -= 150;
+    }
+
+    rightScroll.onclick = function() {
+            document.getElementById("graphical-ads").scrollLeft += 150;
+        }
+        //navbar customization with media queries
+    let nav = document.getElementsByTagName("nav")
+    let navLinksToggler = document.getElementById("nav-links-toggler")
+    let pageFooter = document.getElementById("pageFooter")
+    let topCarousel = document.getElementById("topCarousel")
+    let documentHeight = document.body.clientHeight
+    let pageFooterHeight = pageFooter.clientHeight
+    let navbar = nav[0]
+    let navHeight = nav[0].clientHeight
+    navbarLinkToggled = false
+    document.onscroll = () => {
+        //background with respect to the top header
+        topCarouselHeight = topCarousel.clientHeight
+        if ((topCarouselHeight - navHeight) <= window.scrollY) {
+            navbar.classList.add("bg-dark")
+        } else {
+            if (!navbarLinkToggled && (window.innerWidth > 576)) {
+                navbar.classList.remove("bg-dark")
+            }
+        }
+        //display with respect to the footer
+        if ((documentHeight - pageFooterHeight - navHeight) < window.scrollY) {
+            navbar.style.visibility = "hidden"
+        } else {
+            navbar.style.visibility = "visible"
+
+        }
+    }
+    navLinksToggler.onclick = () => {
+        navbarLinkToggled = !navbarLinkToggled
+        if (window.innerWidth > 576) {
+            navbarClass = navbar.classList
+            if (navbarClass.length == 3) {
+                navbar.classList.add("bg-dark")
+            } else {
+                navbar.classList.remove("bg-dark")
+            }
+        }
+    }
+    window.onresize = () => {
+        if (navbarLinkToggled && innerWidth <= 767) {
+            navbar.classList.add("bg-dark")
+        }
+        if (window.innerWidth > 767) {
+            navbarClass = navbar.classList
+            if (navbarClass.length != 3) {
+                navbar.classList.remove("bg-dark")
+            }
+        }
+    }
+</script>
+
+</html>
